@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
     
   }
 
-  
+ 
 
   logOut() {
     this.accountService.logOut();

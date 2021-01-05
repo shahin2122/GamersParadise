@@ -14,7 +14,11 @@ namespace API.Data
 
             var user = new AppUser(){
                 UserName = "shahin",
-                Email = "shahin2122@gmail.com"
+                Email = "shahin2122@gmail.com",
+                FirstName = "شاهین",
+                LastName = "محمدپور",
+                EmailConfirmed = true,
+                
             };
 
             var roles = new List<AppRole>
@@ -29,7 +33,7 @@ namespace API.Data
                 await roleManager.CreateAsync(role);
             }
 
-            await userManager.CreateAsync(user, "Pa$$w0rd");
+            await userManager.CreateAsync(user, "117361332645133577867");
             await userManager.AddToRolesAsync(user, new[] { "Admin", "Moderator"});
         }
     }

@@ -47,7 +47,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               this.router.navigateByUrl('/server-error', navigationExtras);
               break;
             default:
-              this.toastr.error('مشگل عجیبی پیش امده است');
+              this.toastr.error('مشگل نامعلومی پیش امده است');
               console.log(error);
               break;
           }

@@ -1,33 +1,59 @@
 
     <div  class="d-flex flex-column flex-md-row align-items-center justify-content-between
-     p-3 px-md-4 mb-3 navbar-dark  border-bottom shadow-sm fixed-top">
-        <img src="/assets/images/logo.png" alt="logo" style="max-height: 90px;">
+     p-3 px-md-4 mb-3 navbar-dark  border-bottom shadow-sm fixed-top" style="background-color: black;">
+     
+     <div class="d-flex align-items-center" >
+        <div class="d-flex align-items-center vazir" *ngIf="(accountService.currentUser$ | async) === null"> 
+           <div class="btn-group mr-3" dir="ltr">
+            
+            <a  class="btn btn-primary d-flex align-items-center justify-content-center" style="min-width: 100px;" routerLink='register'>ثبت نام<i class="fa fa-user-plus mx-2"></i></a>
+            <a class="btn btn-success d-flex align-items-center" style="min-width: 100px;" routerLink='login' >ورود<i class="fa fa-sign-in mx-2"></i></a>
+
+           </div>
+           
+        </div>
+
+        <div class="vazir dropdown mr-5"*ngIf="(accountService.currentUser$ | async) as user" dropdown>
+            
+            <a class="dropdown-toggle text-white" dropdownToggle ><i class="fa fa-user-circle-o fa-2x" ></i></a>
+            <div class="dropdown-menu dropdown-menu-right mt-1 " *dropdownMenu>
+                <div class="d-flex dropdown-item disabled text-white">
+                    <div>
+                        <img class="align-items-start" style="max-width: 60px;border-radius: 50%;" src="{{user.pictureUrl || './assets/images/user.png'}}">
+                    </div>
+                   
+
+                    <div style="flex-direction: column;"> 
+                     <p class="d-flex align-items-end mr-3 " style="font-size: large;" >  {{user.firstName}}</p>
+
+                     <p class="d-flex align-items-start mr-3" style="font-size: small;"> {{user.email}}</p>
+                    </div>
+                   
+                </div>
+                <div class="dropdown-divider"></div>
+                <a  routerLink="/member/{{user.id}}" class="vazir dropdown-item d-flex justify-content-start align-items-center" ><i class=" fa fa-id-card fa-2x mx-2"></i> پروفایل من </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item d-flex justify-content-start align-items-center" (click)="logOut()"><i class="fa fa-sign-out fa-2x mx-2"></i>خروج</a>
+            </div>
+
+            <a class="position-relative">
+                <i class="fa fa-shopping-cart fa-2x mr-5 text-white" aria-hidden="true"></i>
+                <div class="cart-no" style="padding-top: 2px;">5</div>
+            </a>
+            
+           
+        </div>
+        
+    </div>
+
+
         <nav class="my-2 my-md-0 me-md-3" style="max-height: 90px;" >
           <a class="p-2 text-white" routerLink='/'>Home</a>
           <a class="p-2 text-white" routerLink='/errors'>errors</a>
           <a class="p-2 text-white" routerLink = '/admin'>Admin</a>
         </nav>
-        <div class="d-flex align-items-center" >
-            <div class="d-flex align-items-center vazir" *ngIf="(accountService.currentUser$ | async) === null"> 
-               
-                <a class="btn btn-success mr-2" routerLink='login' >ورود</a>
-                <a class="btn btn-primary mr-3" routerLink='register'>ثبت نام</a>
-            </div>
+        
 
-            <div class="dropdown"*ngIf="(accountService.currentUser$ | async) as user" dropdown>
-                <a class="position-relative">
-                    <i class="fa fa-shopping-cart fa-2x mr-5 text-white" aria-hidden="true"></i>
-                    <div class="cart-no" style="padding-top: 2px;">5</div>
-                </a>
-                <a class="dropdown-toggle text-white" dropdownToggle >Welcome {{user.username}} <i class="fa fa-user-circle-o fa-2x" ></i></a>
-                <div class="dropdown-menu mt-3" *dropdownMenu>
-                    <a class="dropdown-item">My Profile</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" (click)="logOut()">Logout</a>
-                </div>
-               
-            </div>
-            
-        </div>
+        <img src="/assets/images/logo.png" alt="logo" style="max-height: 90px;">
        
     </div>

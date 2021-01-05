@@ -8,3 +8,9 @@
 .vazir{
     font-family: "Vazir";
 }
+
+.member-tabset {
+    display: flex;
+    justify-content: flex-start;
+}
+  

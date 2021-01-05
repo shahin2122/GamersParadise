@@ -3,6 +3,9 @@ using API.Helpers;
 using API.Interfaces;
 using API.Services;
 using AutoMapper;
+using Google.Apis.Auth.AspNetCore3;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,6 +24,11 @@ namespace API.Extensions
         {
             options.UseSqlite("Data source=GPDataBase.db");
         });
+       
+
+        
+    
+          
 
         return services;
 

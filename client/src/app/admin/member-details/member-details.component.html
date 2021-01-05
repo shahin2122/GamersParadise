@@ -1,0 +1,74 @@
+<div class="row" *ngIf ="member" >  
+   
+    
+     <div class="col-4" >
+         <div class="card" >
+             <img src="{{member.pictureUrl || './assets/images/user.png'}}"
+              alt="{{member.userName}}" class="card-img-top img-thumbnail">
+ 
+              <div  class="card-body vazir">
+                  <div >
+                     <strong class="d-flex justify-content-start" >ایمیل: </strong>
+                     <p class="d-flex justify-content-start">{{member.email}}</p>
+                  </div>
+
+                  <div >
+                     <strong class="d-flex justify-content-start" >نام کاربری:</strong>
+                     <p class="d-flex justify-content-start" >{{member.userName}}</p>
+                  </div>
+                  <div >
+                    <strong class="d-flex justify-content-start" >تاریخ عضویت:</strong>
+                    <p class="d-flex justify-content-start" >{{member.created}}</p>
+                 </div>
+ 
+              </div>
+ 
+              <div class="card-footer">
+                 
+                     <button routerLink="/member/edit" class="btn btn-warning btn-block vazir" >ویرایش مشخصات </button>
+                 
+              </div>
+         </div>
+     </div>
+    
+     <div class="col-8">
+         <tabset class="vazir" >
+             <tab  heading='اطلاعات کاربری' >
+               
+                <ul class="list-group" >
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
+                        <h5 class="d-flex justify-content-start mt-2"> ایمیل :{{member.email}}</h5>
+                     
+                    </li>
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
+                        <h5 class="d-flex justify-content-start mt-2"> نام :{{member.firstName}}</h5>
+                      
+                    </li>
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
+                        <h5 class="d-flex justify-content-start mt-2"> نام خانوادگی :{{member.lastName}}</h5>
+                     
+                    </li>
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
+                        <h5 class="d-flex justify-content-start mt-2"> نام کاربری :{{member.userName}}</h5>
+                     
+                    </li>
+                    <li class="list-group-item d-flex justify-content-start align-items-center">
+                        <h5 class="d-flex justify-content-start mt-2"> شماره موبایل :{{member.phoneNumber}}</h5>
+                     
+                    </li>
+                  </ul>
+
+                    
+                 
+             </tab>
+ 
+             <tab heading="Courses">
+                 <h4 class="mt-2">My Learnig</h4>
+                 <textarea name="introduction" rows="6"></textarea>
+                 <p>jhdfjhdjhdgj</p>
+             </tab>
+ 
+         </tabset>
+     </div>
+ 
+ 

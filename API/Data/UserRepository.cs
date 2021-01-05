@@ -35,17 +35,18 @@ namespace API.Data
             .ToListAsync();
         }
 
-        public async Task<AppUser> GetUserByEmailAsync(string email)
+        public async Task<AppUser> GetUserByUsernameAsync(string username)
         {
             return await _context.Users
             .Include(ur => ur.UserRoles)
-            .SingleOrDefaultAsync(x => x.Email == email);
+            .SingleOrDefaultAsync(x => x.UserName == username);
         }
 
         public async Task<AppUser> GetUserByIdAsync(int id)
         {
             return await _context.Users
-            .FindAsync(id);
+                .Where(x => x.Id == id)
+                .SingleOrDefaultAsync();
         }
 
         public async Task<IEnumerable<AppUser>> GetUsersAsync()

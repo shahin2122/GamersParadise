@@ -1,0 +1,65 @@
+<div class="row" *ngIf ="member" >  
+   <div class="col-4">
+       <h1>ویرایش</h1>
+   </div> 
+   <div class="col-8">
+        <div class="vazir alert alert-danger" *ngIf="editForm.dirty">
+             .شما تغیرات انجام داده اید لطفا برای اعمال تغیرات در آخر انهارا ذخیره کنید.
+        </div>
+   </div>
+    <div class="col-4">
+        <div class="card">
+            <img src="{{member.pictureUrl || './assets/images/user.png'}}"
+             alt="{{member.userName}}" class="card-img-top img-thumbnail">
+
+             <div  class="card-body vazir">
+                <div >
+                   <strong class="d-flex justify-content-start" >ایمیل: </strong>
+                   <p class="d-flex justify-content-start">{{member.email}}</p>
+                </div>
+
+                <div >
+                   <strong class="d-flex justify-content-start" >نام کاربری:</strong>
+                   <p class="d-flex justify-content-start" >{{member.userName}}</p>
+                </div>
+                <div >
+                  <strong class="d-flex justify-content-start" >تاریخ عضویت:</strong>
+                  <p class="d-flex justify-content-start" >{{member.created}}</p>
+               </div>
+
+            </div>
+
+             <div class="card-footer">
+                
+                    <button [disabled]="!editForm.dirty" form="editForm" type="submit" class="btn btn-warning btn-block" >Save changes </button>
+                
+             </div>
+        </div>
+    </div>
+   
+    <div class="col-8">
+        <tabset class="vazir">
+            <tab  heading='اطلاعات کاربری'>
+                <form #editForm="ngForm" id="editForm"  (ngSubmit)="updateMember()">
+                    <h4 class="d-flex justify-content-start mt-2"> ایمیل :</h4>
+                    <textarea class="form-control" [(ngModel)]="member.email" name="email" rows="1"></textarea>
+                    <h4 class="d-flex justify-content-start mt-2"> نام :</h4>
+                    <textarea class="form-control" [(ngModel)]="member.firstName" name="firstName" rows="1"></textarea>
+                    <h4 class="d-flex justify-content-start mt-2"> نام خانوادگی :</h4>
+                    <textarea class="form-control" [(ngModel)]="member.lastName" name="lastName" rows="1"></textarea>
+                    <h4 class="d-flex justify-content-start mt-2"> نام کاربری :</h4>
+                    <textarea class="form-control" [(ngModel)]="member.userName" name="userName" rows="1"></textarea>
+                </form>
+            </tab>
+
+            <tab heading="Courses">
+                <h4 class="mt-2">My Learnig</h4>
+                <textarea name="introduction" rows="6"></textarea>
+                <p>jhdfjhdjhdgj</p>
+            </tab>
+
+        </tabset>
+    </div>
+
+
+</div>

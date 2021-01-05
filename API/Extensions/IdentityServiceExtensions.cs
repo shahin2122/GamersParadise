@@ -36,11 +36,30 @@ namespace API.Extensions
                     ValidateAudience = false,
 
                 };
-            });
+            })
+            .AddGoogle(options =>
+        {
+            IConfigurationSection googleAuthNSection =
+                config.GetSection("Authentication:Google");
+
+            options.ClientId = googleAuthNSection["ClientId"];
+            options.ClientSecret = googleAuthNSection["ClientSecret"];
+        });
 
             services.AddAuthorization(opt => {
                 opt.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
             });
+
+            services.Configure<IdentityOptions>(options => 
+            {
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireDigit = false;
+                
+            });
+
+
 
             return services;
         }

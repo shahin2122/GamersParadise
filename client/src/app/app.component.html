@@ -1,6 +1,13 @@
 
-<app-nav></app-nav>
+<ngx-spinner>
+    <h3>Loading...</h3>
+</ngx-spinner>
 
-<div class="container d-flex justify-content-center" style="margin-top: 140px;">
-<router-outlet></router-outlet>
+<div  dir="rtl" >
+    <app-nav></app-nav>
+
+    <div class="container d-flex justify-content-center " style="margin-top: 140px; ">
+    <router-outlet></router-outlet>
+    </div>
 </div>
+
