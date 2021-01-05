@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center mt-5" style="width: 500px;">
+    <div class="col-12">
+
+        <form #loginForm="ngForm" class="form-signin" (ngSubmit)="login()" autocomplete="off">
+            <div class="text-center mb-4">
+            
+              <h1 class="h3 mb-3 font-weight-normal text-success vazir">ورود به ناحیه کاربری</h1>
+             
+            </div>
+        
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" class="form-control" 
+                placeholder="Email address" required="" autofocus=""
+                name="email" [(ngModel)]="model.email">
+              <label for="inputEmail">Email</label>
+            </div>
+        
+            <div class="form-label-group">
+              <input type="password" id="inputPassword" class="form-control"
+               placeholder="Password" required=""
+               name="password" [(ngModel)]="model.password">
+              <label for="inputPassword">Password</label>
+            </div>
+
+            <button class="btn btn-lg btn-success btn-block vazir" style="margin-bottom: 10px;" type="submit">ورود</button>
+            
+          </form>
+
+    </div>
+</div>
